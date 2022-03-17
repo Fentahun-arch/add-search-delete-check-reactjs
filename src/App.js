@@ -2,7 +2,8 @@ import Header from './Header';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
+
 import SearchItem from './SearchItem';
 function App() {
   const [items, setItems] = useState([
@@ -23,10 +24,16 @@ function App() {
                 }
 
   ]);
-  //but instead of those defaults we use JSON.parse(localStorage.setItem('shoppinglist', JSON.stringify(newItems)));inside useState by removing them.
+  
+  //but instead of those defaults we use JSON.parse(localStorage.getItem('shoppinglist', JSON.stringify(newItems)));inside useState by removing them.
 
   const [newItem, setNewItem] = useState('');
   const [search, setSearch] = useState('');
+  useEffect(()=> {
+    console.log('updating items state');//shows how many times you write and press any keyboard
+
+
+  },[items])
   const SetAndSaveItems = (newItems) => {
     setItems(newItems);
     localStorage.setItem('shoppinglist', JSON.stringify(newItems));

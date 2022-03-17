@@ -7,10 +7,9 @@ function Content({items,handleCheck,handleDelete}) {
         <ItemList
         items = { items }
         handleCheck={ handleCheck }
-      handleDelete={handleDelete}
-              /> 
+      handleDelete={handleDelete}/> 
             ) : (
-                <p style={{ marginTop: '2rem' }}>You cleared all lists .</p>
+                <p style={{ marginTop: '2rem' }}>empty</p>
             )}
         </main>
   )
